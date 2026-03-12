@@ -743,6 +743,233 @@ footer{
   text-align: center;
 }
 
+
+/* ── PRO ENHANCEMENTS ── */
+
+/* Active nav link */
+nav a.nav-active { color: var(--teal) !important; }
+
+/* Typing cursor blink */
+.typed-cursor {
+  display: inline-block;
+  color: var(--teal);
+  animation: blink 0.7s step-end infinite;
+  font-weight: 300;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Fiverr alt link in form */
+.ct-fiverr-alt {
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-bottom: 1.2rem;
+  margin-top: -0.5rem;
+}
+.ct-fiverr-link {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+.ct-fiverr-link:hover { text-decoration: underline; }
+
+/* Scroll progress bar at top */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--blue));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Smooth nav active underline */
+nav a { position: relative; }
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--teal);
+  transition: width 0.25s ease;
+}
+nav a:hover::after, nav a.nav-active::after { width: 100%; }
+
+/* Card hover lift */
+.case-card, .svc-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.case-card:hover, .svc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(80,227,194,0.12);
+}
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  background: var(--teal);
+  color: #0f2744;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(80,227,194,0.3);
+}
+#back-to-top.visible { opacity: 1; pointer-events: all; }
+#back-to-top:hover { transform: translateY(-3px); }
+
+
+/* ── TESTIMONIALS ── */
+.tst-sub {
+  text-align: center;
+  color: var(--slate);
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+}
+.tst-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  align-items: start;
+}
+@media(max-width:768px){ .tst-grid { grid-template-columns:1fr; } }
+
+.tst-card {
+  background: var(--card);
+  border: 1px solid rgba(80,227,194,0.1);
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.tst-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(80,227,194,0.1);
+}
+.tst-featured {
+  border-color: rgba(80,227,194,0.3);
+  background: linear-gradient(135deg, var(--card), rgba(80,227,194,0.04));
+}
+.tst-badge-featured {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  background: rgba(80,227,194,0.1);
+  border: 1px solid rgba(80,227,194,0.25);
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.tst-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+.tst-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(96,184,255,0.2);
+  border: 2px solid rgba(96,184,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.tst-avatar-green {
+  background: rgba(52,211,153,0.2);
+  border-color: rgba(52,211,153,0.3);
+  color: var(--green);
+}
+.tst-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+.tst-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #fff;
+}
+.tst-flag { font-size: 0.85rem; }
+.tst-platform {
+  font-size: 0.75rem;
+  color: var(--slate);
+}
+.tst-stars {
+  color: #fbbf24;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.tst-quote {
+  color: var(--slate);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  font-style: italic;
+  border-left: 3px solid rgba(80,227,194,0.3);
+  padding-left: 1rem;
+  margin: 0 0 1rem;
+}
+.tst-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tst-tag {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--slate);
+}
+.tst-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--green);
+  margin-top: 0.5rem;
+}
+.tst-check {
+  width: 16px; height: 16px;
+  background: rgba(52,211,153,0.15);
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+}
+.tst-cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+.tst-cta-link {
+  color: var(--teal);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(80,227,194,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.tst-cta-link:hover { border-color: var(--teal); }
+
 </style>
 </head>
 <body>
@@ -750,6 +977,11 @@ footer{
 <video id="page-bg-video" autoplay muted loop playsinline>
   <source src="https://petermure46.github.io/portfolio/bg2.mp4" type="video/mp4">
 </video>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+<!-- Back to top -->
+<button id="back-to-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 
 <!-- NAV -->
@@ -761,9 +993,10 @@ footer{
     <li><a href="#methodology"><span>03</span>Methodology</a></li>
     <li><a href="#investigations"><span>04</span>Investigations</a></li>
     <li><a href="#research"><span>05</span>Research</a></li>
-    <li><a href="#contact"><span>06</span>Contact</a></li>
+    <li><a href="#testimonials"><span>06</span>Reviews</a></li>
+    <li><a href="#contact"><span>07</span>Contact</a></li>
   </ul>
-  <a href="https://www.fiverr.com/sellers/petermureith430/" target="_blank" class="nav-btn">Hire Me</a>
+  <a href="#contact" class="nav-btn" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'});return false;">Hire Me</a>
 </nav>
 
 <!-- ═══════════ HERO ═══════════ -->
@@ -772,7 +1005,7 @@ footer{
 
     <!-- LEFT COLUMN: Text -->
     <div class="ht-left">
-      <p class="ht-eyebrow">// Cybersecurity &amp; Digital Forensics</p>
+      <p class="ht-eyebrow"><span id="typed-text"></span><span class="typed-cursor">|</span></p>
       <h1 class="ht-h1">Investigating Breaches.<br><span class="ht-highlight">Delivering Answers.</span></h1>
       <p class="ht-desc">
         DFIR Analyst specializing in <strong>incident investigation, malware analysis, and digital evidence examination</strong>.
@@ -787,7 +1020,7 @@ footer{
 
       <div class="ht-btns">
         <a href="#investigations" class="ht-btn-solid">View Case Studies</a>
-        <a href="https://www.fiverr.com/sellers/petermureith430/" target="_blank" class="ht-btn-outline">Hire on Fiverr &#x2192;</a>
+        <a href="#contact" class="ht-btn-outline" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'});return false;">Hire Me &#x2193;</a>
       </div>
 
       <div class="ht-orgs">
@@ -1086,6 +1319,54 @@ footer{
 </div>
 </div>
 
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<div class="sec-wrap" id="testimonials">
+  <div class="sec-hd reveal" style="justify-content:center;">
+    <h2><span>07.</span>Client Reviews</h2>
+  </div>
+  <p class="tst-sub reveal">Real feedback from verified Fiverr clients</p>
+
+  <div class="tst-grid reveal">
+
+    <!-- Review 1 -->
+    <div class="tst-card">
+      <div class="tst-header">
+        <div class="tst-avatar">A</div>
+        <div class="tst-meta">
+          <span class="tst-name">Anonymous Client</span>
+          <span class="tst-platform">⭐ Fiverr · 9 months ago</span>
+        </div>
+        <div class="tst-stars">★★★★★</div>
+      </div>
+      <p class="tst-quote">"It was lovely to work with Peter, very knowledgable and helpful."</p>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="tst-card tst-featured">
+      <div class="tst-badge-featured">⭐ Featured Review</div>
+      <div class="tst-header">
+        <div class="tst-avatar tst-avatar-green">S</div>
+        <div class="tst-meta">
+          <span class="tst-name">salide2 <span class="tst-flag">🇺🇸</span> United States</span>
+          <span class="tst-platform">⭐ Fiverr · 11 months ago</span>
+        </div>
+        <div class="tst-stars">★★★★★</div>
+      </div>
+      <p class="tst-quote">"I had the pleasure of working with Peter on a critical project, and I couldn't be more impressed with the results. From the start, they demonstrated deep expertise and strategic thinking, ensuring every aspect of the project was well thought out and executed flawlessly. What stood out most was their incredible attention to detail and data depth. They not only met my expectations but went above and beyond to deliver insights and solutions I hadn't even considered. Their ability to anticipate challenges and provide proactive recommendations added tremendous value to the final outcome. Additionally, their commitment to excellence was evident in their timely delivery. Despite the complexity of the project, they remained highly responsive and efficient, completing the work ahead of schedule without compromising quality. If you're looking for a reliable, knowledgeable, and dedicated professional, I highly recommend Peter. Their work exceeded my expectations, and I would absolutely hire them again in the future!"</p>
+      <div class="tst-verified">
+        <span class="tst-check">✓</span> Verified Fiverr Purchase
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tst-cta reveal">
+    <a href="https://www.fiverr.com/sellers/petermureith430/" target="_blank" class="tst-cta-link">
+      View all reviews on Fiverr ↗
+    </a>
+  </div>
+</div>
+
 <!-- ═══════════ CONTACT ═══════════ -->
 <div class="sec-wrap" id="contact">
   <div class="sec-hd reveal" style="justify-content:center;"><h2><span>06.</span>Work With Me</h2></div>
@@ -1100,7 +1381,7 @@ footer{
         <span class="ct-ico">📧</span>
         <div>
           <span class="ct-lbl-sm">Email</span>
-          <a href="mailto:petermurethi46@gmail.com" class="ct-val-link">petermurethi46@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#d5a5b0a1b0a7b8a0a7b0a1bdbce1e395b2b8b4bcb9fbb6bab8" class="ct-val-link"><span class="__cf_email__" data-cfemail="7606130213041b030413021e1f424036111b171f1a5815191b">[email&#160;protected]</span></a>
         </div>
       </div>
       <div class="ct-detail">
@@ -1134,6 +1415,7 @@ footer{
     <!-- RIGHT: Form -->
     <div class="ct-form-wrap">
       <h3 class="ct-form-title">Send a Message</h3>
+      <p class="ct-fiverr-alt">Prefer Fiverr? <a href="https://www.fiverr.com/sellers/petermureith430/" target="_blank" class="ct-fiverr-link">Hire me there instead ↗</a></p>
       <form action="https://formspree.io/f/xgonywal" method="POST" class="ct-form" id="contactForm">
 
         <div class="ct-field">
@@ -1187,6 +1469,57 @@ footer{
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// ── TYPING ANIMATION ──
+(function(){
+  const phrases = [
+    '// Cybersecurity & Digital Forensics',
+    '// Incident Response Specialist',
+    '// Digital Forensics Analyst',
+    '// Malware Investigator'
+  ];
+  let pi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+  function type() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(type, 2000); return; }
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 40 : 65);
+  }
+  type();
+})();
+
+// ── SCROLL PROGRESS BAR ──
+window.addEventListener('scroll', function() {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+  // Back to top visibility
+  const btt = document.getElementById('back-to-top');
+  if (btt) btt.classList.toggle('visible', window.scrollY > 500);
+});
+
+// ── ACTIVE NAV LINK ──
+(function(){
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('nav-active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+})();
+
+</script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
 // Contact form AJAX submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -1234,10 +1567,3 @@ function tog(h) {
   const b = h.nextElementSibling;
   const a = h.querySelector('.inv-arr');
   const open = b.classList.contains('open');
-  document.querySelectorAll('.inv-body').forEach(x => x.classList.remove('open'));
-  document.querySelectorAll('.inv-arr').forEach(x => x.textContent = '[+]');
-  if (!open) { b.classList.add('open'); a.textContent = '[-]'; }
-}
-</script>
-</body>
-</html>
